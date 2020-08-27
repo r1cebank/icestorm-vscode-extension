@@ -10,22 +10,16 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Check the settings.iceproj file
 	// vscode.workspace.fs.stat(new vscode.Uri());
-	console.log(vscode.workspace.workspaceFolders);
-	const workspaces = vscode.workspace.workspaceFolders;
-	if (workspaces?.length) {
-		const currentWorkspaceUri = workspaces[0].uri;
-		vscode.workspace.fs.stat(vscode.Uri.joinPath(currentWorkspaceUri, 'settings.iceproj')).then(() => {
-			console.log('inside icestorm project');
-			vscode.commands.executeCommand('setContext', 'inIcestormProject', true);
-		});
-	}
+	vscode.commands.executeCommand('icestorm.refreshproject');
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
 	console.log('icestorm plugin is active');
 
 	// Register all commands
-	context.subscriptions.push(commands.createProject);
+	context.subscriptions.push(commands.createProject(context));
+	context.subscriptions.push(commands.buildProject(context));
+	context.subscriptions.push(commands.refreshProject(context));
 }
 
 // this method is called when your extension is deactivated

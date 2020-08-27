@@ -1,16 +1,12 @@
-# icestorm README
+# icestorm-vscode-extension
 
-This is the README for your extension "icestorm". After writing up a brief description, we recommend including the following sections.
+Extension to build and program FPGA using icestorm
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+* Project creating with template code.
+* Building using yosys and nextpnr
+* Programming with iceprog
 
 ## Requirements
 

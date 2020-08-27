@@ -5,6 +5,7 @@ export * from './top';
 export * from './constraint';
 export * from './lib';
 export * from './settings';
+export * from './files';
 
 export const createProject = async (projectName: string, projectDir: vscode.Uri) => {
     await vscode.workspace.fs.writeFile(vscode.Uri.joinPath(projectDir, 'source', 'top.v'), Buffer.from(AlchitryCU.topV));
@@ -18,6 +19,7 @@ export const createProject = async (projectName: string, projectDir: vscode.Uri)
         ...AlchitryCU.projectSettings,
         projectName
     })));
+    await vscode.workspace.fs.writeFile(vscode.Uri.joinPath(projectDir, '.gitignore'), Buffer.from(AlchitryCU.gitignore));
     console.log('lib created');
     await vscode.commands.executeCommand('vscode.openFolder', projectDir);
 };

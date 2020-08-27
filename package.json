@@ -11,19 +11,32 @@
 	],
 	"activationEvents": [
 		"onStartupFinished",
-		"onCommand:icestorm.createproject"
+		"onCommand:icestorm.createproject",
+		"onCommand:icestorm.buildproject"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [{
-			"command": "icestorm.createproject",
-			"title": "Create FPGA project"
-		}],
+				"command": "icestorm.createproject",
+				"title": "Create FPGA project"
+			},
+			{
+				"command": "icestorm.refreshproject",
+				"title": "Reload project settings"
+			},
+			{
+				"command": "icestorm.buildproject",
+				"title": "Build FPGA project",
+				"icon": {
+					"light": "./assets/hammer_light.svg",
+					"dark": "./assets/hammer_dark.svg"
+				}
+			}
+		],
 		"menus": {
 			"editor/title": [{
 				"when": "inIcestormProject",
-				"command": "markdown.showPreview",
-				"alt": "markdown.showPreviewToSide",
+				"command": "icestorm.buildproject",
 				"group": "navigation"
 			}]
 		}
@@ -40,6 +53,7 @@
 		"@types/glob": "^7.1.3",
 		"@types/mocha": "^8.0.0",
 		"@types/node": "^14.0.27",
+		"@types/shelljs": "^0.8.8",
 		"@types/vscode": "^1.48.0",
 		"@typescript-eslint/eslint-plugin": "^3.8.0",
 		"@typescript-eslint/parser": "^3.8.0",
@@ -49,5 +63,7 @@
 		"typescript": "^3.8.3",
 		"vscode-test": "^1.4.0"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"shelljs": "^0.8.4"
+	}
 }
