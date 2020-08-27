@@ -2,10 +2,6 @@ import * as vscode from 'vscode';
 
 import * as hardware from '../hardware';
 
-const chips = [
-    'Alchiery CU'
-];
-
 export const createProject = (context: vscode.ExtensionContext) => {
     return vscode.commands.registerCommand('icestorm.createproject', async () => {
         // The code you place here will be executed every time your command is executed
@@ -23,7 +19,7 @@ export const createProject = (context: vscode.ExtensionContext) => {
             title: 'Where to create your new project?'
         });
 
-        const fpgaType = await vscode.window.showQuickPick(chips, {
+        const fpgaType = await vscode.window.showQuickPick(hardware.hardwareList, {
             canPickMany: false,
             placeHolder: 'What is the FPGA you are using?'
         });
@@ -33,7 +29,8 @@ export const createProject = (context: vscode.ExtensionContext) => {
             if (fpgaType === 'Alchiery CU') {
                 await hardware.AlchitryCU.createProject(projectName, projectDir);
             }
-            vscode.commands.executeCommand('icestorm.refreshproject');
+            await vscode.commands.executeCommand('icestorm.refreshproject');
+            vscode.window.showInformationMessage('Project created, enjoy!');
         } else {
             vscode.window.showErrorMessage('Error creating project, missing params.');
         }

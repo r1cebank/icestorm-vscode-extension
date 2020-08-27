@@ -19,6 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// Register all commands
 	context.subscriptions.push(commands.createProject(context));
 	context.subscriptions.push(commands.buildProject(context));
+	context.subscriptions.push(commands.programProject(context));
 	context.subscriptions.push(commands.refreshProject(context));
 }
 
