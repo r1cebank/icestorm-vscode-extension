@@ -24,7 +24,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-
+      - run: npm ci
       - name: Vscode plugin release action
         uses: JCofman/vscodeaction@v2.0.1
         env:
