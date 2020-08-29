@@ -2,6 +2,16 @@
 
 Extension to build and program FPGA using icestorm
 
+## Support
+
+* Alchitry CU (Lattice iCE40-HX8K)
+
+## Commands
+
+* icestorm.createproject (Create new FPGA project)
+* icestorm.buildproject (Build the project into bitstream)
+* icestorm.programproject (Program the FPGA board)
+
 ## Features
 
 * Project creating with template code.
@@ -10,22 +20,20 @@ Extension to build and program FPGA using icestorm
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+For Alchitry CU, nextpnr, icestorm and yosys is required.
+
+https://github.com/YosysHQ/nextpnr
+
+https://github.com/cliffordwolf/icestorm
+
+https://github.com/YosysHQ/yosys
+
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Only support Alchitry CU at the moment, I don't have other FPGA board to test, but adding new hardware support should be easy.
 
 ## Release Notes
 
@@ -33,29 +41,11 @@ Users appreciate release notes as you update your extension.
 
 ### 1.0.0
 
-Initial release of ...
+Initial release of extension
 
-### 1.0.1
+* Alchitry CU support
+* Auto refresh project settings
+* Building and flashing support
 
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+## Contributing
+If you want to add your own board support, feel free to submit PR for the new hardware.

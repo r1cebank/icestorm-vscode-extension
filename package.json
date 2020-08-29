@@ -2,7 +2,7 @@
 	"name": "icestorm",
 	"displayName": "IceStorm",
 	"description": "Build and program FPGA with project IceStorm",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.48.0"
 	},
@@ -12,12 +12,12 @@
 	"activationEvents": [
 		"onStartupFinished",
 		"onCommand:icestorm.createproject",
-		"onCommand:icestorm.buildproject"
+		"onCommand:icestorm.buildproject",
+		"onCommand:icestorm.programproject"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
-			{
+		"commands": [{
 				"command": "icestorm.createproject",
 				"title": "Create FPGA project"
 			},
@@ -43,8 +43,7 @@
 			}
 		],
 		"menus": {
-			"editor/title": [
-				{
+			"editor/title": [{
 					"when": "inIcestormProject",
 					"command": "icestorm.buildproject",
 					"group": "navigation"
