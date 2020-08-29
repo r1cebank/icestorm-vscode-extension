@@ -1,5 +1,15 @@
 import * as shell from 'shelljs';
 import * as vscode from 'vscode';
+import * as YAML from 'yaml';
+
+import { ProjectSettings } from './hardware';
+
+export const saveProjectSettings = async (projectName: string, projectDir: vscode.Uri, settings: ProjectSettings) => {
+    await vscode.workspace.fs.writeFile(vscode.Uri.joinPath(projectDir, 'iceproj.yml'), Buffer.from(YAML.stringify({
+        ...settings,
+        projectName
+    })));
+};
 
 export const runCommand = async (command: string, output: vscode.OutputChannel) => {
     return new Promise((resolve, reject) => {

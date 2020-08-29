@@ -8,14 +8,14 @@ let output = vscode.window.createOutputChannel('Icestorm Build');
 
 export const buildProject = (context: vscode.ExtensionContext) => {
     return vscode.commands.registerCommand('icestorm.buildproject', async () => {
-        const { sys, constraint, pnr, pack, buildTools } = <ProjectSettings>context.workspaceState.get('icestormsetting');
+        const { sys, constraint, pnr, pack, buildTools, buildDir } = <ProjectSettings>context.workspaceState.get('icestormsetting');
         const workspaces = vscode.workspace.workspaceFolders;
         if (workspaces?.length) {
             const currentWorkspaceUri = workspaces[0].uri;
             shell.cd(currentWorkspaceUri.path);
             if (checkRequirement(buildTools)) {
                 try {
-                    await runCommand('mkdir -p build', output);
+                    await runCommand(`mkdir -p ${buildDir}`, output);
                     await runCommand(sys, output);
                     await runCommand(constraint, output);
                     await runCommand(pnr, output);

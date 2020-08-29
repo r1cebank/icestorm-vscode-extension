@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 
 import * as hardware from '../hardware';
+import { saveProjectSettings } from '../utils';
 
 export const createProject = (context: vscode.ExtensionContext) => {
     return vscode.commands.registerCommand('icestorm.createproject', async () => {
@@ -26,8 +27,9 @@ export const createProject = (context: vscode.ExtensionContext) => {
 
         if (fpgaType && projectDirs?.length && projectName) {
             const projectDir = projectDirs[0];
-            if (fpgaType === 'Alchiery CU') {
-                await hardware.AlchitryCU.createProject(projectName, projectDir);
+            if (fpgaType === 'Alchitry CU') {
+                await hardware.AlchitryCU.createProject(projectDir);
+                await saveProjectSettings(projectName, projectDir, hardware.AlchitryCU.projectSettings);
             }
             await vscode.commands.executeCommand('icestorm.refreshproject');
             vscode.window.showInformationMessage('Project created, enjoy!');

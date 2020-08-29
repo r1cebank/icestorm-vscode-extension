@@ -16,7 +16,8 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [{
+		"commands": [
+			{
 				"command": "icestorm.createproject",
 				"title": "Create FPGA project"
 			},
@@ -42,15 +43,18 @@
 			}
 		],
 		"menus": {
-			"editor/title": [{
-				"when": "inIcestormProject",
-				"command": "icestorm.buildproject",
-				"group": "navigation"
-			}, {
-				"when": "inIcestormProject",
-				"command": "icestorm.programproject",
-				"group": "navigation"
-			}]
+			"editor/title": [
+				{
+					"when": "inIcestormProject",
+					"command": "icestorm.buildproject",
+					"group": "navigation"
+				},
+				{
+					"when": "inIcestormProject",
+					"command": "icestorm.programproject",
+					"group": "navigation"
+				}
+			]
 		}
 	},
 	"scripts": {
@@ -76,6 +80,7 @@
 		"vscode-test": "^1.4.0"
 	},
 	"dependencies": {
-		"shelljs": "^0.8.4"
+		"shelljs": "^0.8.4",
+		"yaml": "^1.10.0"
 	}
 }

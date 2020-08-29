@@ -16,6 +16,13 @@ export function activate(context: vscode.ExtensionContext) {
 	// This line of code will only be executed once when your extension is activated
 	console.log('icestorm plugin is active');
 
+	// Setup watcher for the project file
+	const watcher = vscode.workspace.createFileSystemWatcher('**/iceproj.yml');
+	watcher.onDidChange(() => {
+		console.log('project file change');
+		vscode.commands.executeCommand('icestorm.refreshproject');
+	});
+
 	// Register all commands
 	context.subscriptions.push(commands.createProject(context));
 	context.subscriptions.push(commands.buildProject(context));

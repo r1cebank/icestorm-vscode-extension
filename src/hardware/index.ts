@@ -1,7 +1,7 @@
 export * as AlchitryCU from './alchitry-cu';
 
 export const hardwareList = [
-    'Alchiery CU'
+    'Alchitry CU'
 ];
 
 export type ProjectSettings = {
@@ -13,4 +13,5 @@ export type ProjectSettings = {
     program: string;
     buildTools: string[];
     programTools: string[];
+    buildDir: string;
 };
