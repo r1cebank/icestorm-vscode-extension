@@ -6,7 +6,10 @@
 	"engines": {
 		"vscode": "^1.48.0"
 	},
+	"publisher": "r1cebank",
+	"repository": "https://github.com/r1cebank/icestorm-vscode-extension",
 	"categories": [
+		"Programming Languages",
 		"Other"
 	],
 	"activationEvents": [
