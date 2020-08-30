@@ -1,5 +1,7 @@
 # icestorm-vscode-extension
 
+![CI](https://github.com/r1cebank/icestorm-vscode-extension/workflows/CI/badge.svg)
+
 Extension to build and program FPGA using icestorm
 
 ## Support
