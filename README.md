@@ -51,3 +51,9 @@ Initial release of extension
 
 ## Contributing
 If you want to add your own board support, feel free to submit PR for the new hardware.
+
+Icon made by [icon king](https://www.freeicons.io/profile/3) from www.freeicons.io
+
+Build icon made by [www.wishforge.games](https://www.freeicons.io/profile/2257) from www.freeicons.io
+
+Download icon made by [Raj Dev](https://www.freeicons.io/profile/714) from www.freeicons.io
