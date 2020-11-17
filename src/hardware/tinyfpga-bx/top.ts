@@ -1,31 +1,28 @@
-export const topV = `module top (
-  input clk,
-  input rst_n,
-  output reg [7:0] led,
-  input usb_rx,
-  output reg usb_tx
+export const topV = `// look in pins.pcf for all the pin names on the TinyFPGA BX board
+module top (
+    input CLK,    // 16MHz clock
+    output LED,   // User/boot LED next to power LED
+    output USBPU  // USB pull-up resistor
 );
+    // drive USB pull-up resistor to '0' to disable USB
+    assign USBPU = 0;
 
-reg rst;
+    ////////
+    // make a simple blink circuit
+    ////////
 
-wire [1-1:0] M_reset_cond_out;
-reg [1-1:0] M_reset_cond_in;
-reset_conditioner reset_cond (
-  .clk(clk),
-  .in(M_reset_cond_in),
-  .out(M_reset_cond_out)
-);
-wire [1-1:0] M_myBlinker_blink;
-blinker myBlinker (
-  .clk(clk),
-  .rst(rst),
-  .blink(M_myBlinker_blink)
-);
+    // keep track of time and location in blink_pattern
+    reg [25:0] blink_counter;
 
-always @* begin
-  M_reset_cond_in = ~rst_n;
-  rst = M_reset_cond_out;
-  led = {4'h8{M_myBlinker_blink}};
-  usb_tx = usb_rx;
-end
-endmodule`;
+    // pattern that will be flashed over the LED over time
+    wire [31:0] blink_pattern = 32'b101010001110111011100010101;
+
+    // increment the blink_counter every clock
+    always @(posedge CLK) begin
+        blink_counter <= blink_counter + 1;
+    end
+    
+    // light up the LED according to the pattern
+    assign LED = blink_pattern[blink_counter[25:21]];
+endmodule
+`;

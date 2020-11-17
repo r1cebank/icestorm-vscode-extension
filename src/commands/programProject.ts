@@ -8,18 +8,28 @@ let output = vscode.window.createOutputChannel('Icestorm Program');
 
 export const programProject = (context: vscode.ExtensionContext) => {
     return vscode.commands.registerCommand('icestorm.programproject', async () => {
-        const { program, programTools, buildDir } = <ProjectSettings>context.workspaceState.get('icestormsetting');
+        const { program, programTools, buildDir, buildType } = <ProjectSettings>context.workspaceState.get('icestormsetting');
         const workspaces = vscode.workspace.workspaceFolders;
         if (workspaces?.length) {
             const currentWorkspaceUri = workspaces[0].uri;
-            shell.cd(currentWorkspaceUri.path);
+            shell.cd(currentWorkspaceUri.fsPath);
             if (checkRequirement(programTools)) {
-                try {
-                    await runCommand(`mkdir -p ${buildDir}`, output);
-                    await runCommand(program, output);
-                    vscode.window.showInformationMessage('Program success!');
-                } catch (error) {
-                    vscode.window.showErrorMessage('Program failed, please check output.');
+                vscode.window.showInformationMessage(`Programming Started with ${programTools}`);
+                if (buildType === 'apio') {
+                    try{
+                        await runCommand(program, output);
+                        vscode.window.showInformationMessage('Programming Succeeded');
+                    } catch (error) {
+                        vscode.window.showErrorMessage('Programming failed, please check output.');
+                    }
+                } else {
+                    try {
+                        await runCommand(`mkdir -p ${buildDir}`, output);
+                        await runCommand(program, output);
+                        vscode.window.showInformationMessage('Programming Succeeded');
+                    } catch (error) {
+                        vscode.window.showErrorMessage('Programming failed, please check output.');
+                    }
                 }
             }
         }

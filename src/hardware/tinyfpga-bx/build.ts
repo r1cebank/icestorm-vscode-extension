@@ -8,6 +8,6 @@ export const projectSettings = {
     buildTools,
     programTools,
     buildDir: 'build',
-    build: 'apio build --board TinyFPGA-BX',
-    program: 'apio upload --board TinyFPGA-BX'
+    build: 'apio build -b TinyFPGA-BX -p source',
+    program: 'apio upload -b TinyFPGA-BX -p source'
 };

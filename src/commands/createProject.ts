@@ -33,6 +33,7 @@ export const createProject = (context: vscode.ExtensionContext) => {
             } else if (fpgaType === 'TinyFpga-BX') {
                 await hardware.TinyFpgaBX.createProject(projectDir);
                 await saveProjectSettings(projectName,projectDir, hardware.TinyFpgaBX.projectSettings);
+                
             }
             await vscode.commands.executeCommand('icestorm.refreshproject');
             vscode.window.showInformationMessage('Project created, enjoy!');

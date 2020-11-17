@@ -13,15 +13,14 @@ export const buildProject = (context: vscode.ExtensionContext) => {
         if (workspaces?.length) {
             const currentWorkspaceUri = workspaces[0].uri;
             shell.cd(currentWorkspaceUri.fsPath);
-            //console.log(currentWorkspaceUri.fsPath);
-            //shell.cd('c:/Users/matth/OneDrive/Desktop/fpga-test');
             if (checkRequirement(buildTools)) {
+                vscode.window.showInformationMessage(`Build Started with ${buildTools}`);
                 if (buildType === 'apio') {
-                    vscode.window.showInformationMessage('Using APIO');
                     try{
                         await runCommand(build, output);
+                        vscode.window.showInformationMessage('Build Succeeded!');
                     } catch (error) {
-                        vscode.window.showErrorMessage('Building failed, please check output.');
+                        vscode.window.showErrorMessage('Build failed, please check output.');
                     }
                 } else {
                     try {
@@ -31,9 +30,9 @@ export const buildProject = (context: vscode.ExtensionContext) => {
                         await runCommand(constraint, output);
                         await runCommand(pnr, output);
                         await runCommand(pack, output);
-                        vscode.window.showInformationMessage('Build success!');
+                        vscode.window.showInformationMessage('Build Succeded!');
                     } catch (error) {
-                        vscode.window.showErrorMessage('Building failed, please check output.');
+                        vscode.window.showErrorMessage('Build failed, please check output.');
                     }
                 }
             }
