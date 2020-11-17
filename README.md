@@ -5,8 +5,10 @@
 Extension to build and program FPGA using icestorm
 
 ## Support
-
-* Alchitry CU (Lattice iCE40-HX8K)
+| Board name | FPGA | Build Method | Program method | Requirements |
+| ---------- | ---- | ------------ | -------------- | ------------ |
+| [Alchitry CU](https://alchitry.com/products/alchitry-cu-fpga-development-board) | Lattice iCE40-HX8K | yosys/nextpnr | iceprog | yosys, nextpnr, iceprog |
+| [TinyFPGA-BX](https://tinyfpga.com/) | Lattice iCE40-LP8K | APIO | APIO | APIO
 
 ## Commands
 
@@ -17,8 +19,8 @@ Extension to build and program FPGA using icestorm
 ## Features
 
 * Project creating with template code.
-* Building using yosys and nextpnr
-* Programming with iceprog
+* Building using yosys and nextpnr or APIO
+* Programming with iceprog or APIO
 
 ## Requirements
 
@@ -31,15 +33,16 @@ https://github.com/cliffordwolf/icestorm
 https://github.com/YosysHQ/yosys
 
 
-## Extension Settings
+For TinyFPGA-BX, APIO is required.
+
+https://github.com/FPGAwars/apio
+
 
 ## Known Issues
 
-Only support Alchitry CU at the moment, I don't have other FPGA board to test, but adding new hardware support should be easy.
+Only support Alchitry CU and TinyFPGA-BX at the moment, I don't have other FPGA board to test, but adding new hardware support should be easy.
 
 ## Release Notes
-
-Users appreciate release notes as you update your extension.
 
 ### 1.0.0
 
@@ -51,6 +54,10 @@ Initial release of extension
 
 ## Contributing
 If you want to add your own board support, feel free to submit PR for the new hardware.
+
+## Credits
+
+TinyFPGA-BX added by [matt-hu](https://github.com/matt-hu)
 
 Icon made by [icon king](https://www.freeicons.io/profile/3) from www.freeicons.io
 
