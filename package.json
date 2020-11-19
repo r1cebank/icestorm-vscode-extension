@@ -21,7 +21,8 @@
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
-		"commands": [{
+		"commands": [
+			{
 				"command": "icestorm.createproject",
 				"title": "Create FPGA project"
 			},
@@ -47,7 +48,8 @@
 			}
 		],
 		"menus": {
-			"editor/title": [{
+			"editor/title": [
+				{
 					"when": "inIcestormProject",
 					"command": "icestorm.buildproject",
 					"group": "navigation"
@@ -90,6 +92,7 @@
 	},
 	"dependencies": {
 		"shelljs": "^0.8.4",
+		"tsc": "^1.20150623.0",
 		"yaml": "^1.10.0"
 	}
 }
