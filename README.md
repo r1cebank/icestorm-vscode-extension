@@ -9,6 +9,7 @@ Extension to build and program FPGA using icestorm
 | ---------- | ---- | ------------ | -------------- | ------------ |
 | [Alchitry CU](https://alchitry.com/products/alchitry-cu-fpga-development-board) | Lattice iCE40-HX8K | yosys/nextpnr | iceprog | yosys, nextpnr, iceprog |
 | [TinyFPGA-BX](https://tinyfpga.com/) | Lattice iCE40-LP8K | APIO | APIO | APIO
+| [OK-iCE40Pro](https://wifiboy.org/okice/) | Lattice iCE40-UP5K | APIO | APIO | APIO
 
 ## Commands
 
@@ -33,14 +34,14 @@ https://github.com/cliffordwolf/icestorm
 https://github.com/YosysHQ/yosys
 
 
-For TinyFPGA-BX, APIO is required.
+For TinyFPGA-BX, OK-iCE40Pro, APIO is required.
 
 https://github.com/FPGAwars/apio
 
 
 ## Known Issues
 
-Only support Alchitry CU and TinyFPGA-BX at the moment, I don't have other FPGA board to test, but adding new hardware support should be easy.
+Only support Alchitry CU, TinyFPGA-BX and OK-iCE40Pro at the moment, I don't have other FPGA board to test, but adding new hardware support should be easy.
 
 ## Release Notes
 

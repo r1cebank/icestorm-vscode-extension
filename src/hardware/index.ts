@@ -1,9 +1,11 @@
 export * as AlchitryCU from './alchitry-cu';
 export * as TinyFpgaBX from './tinyfpga-bx';
+export * as OKiCE40Pro from './ok-ice40pro';
 
 export const hardwareList = [
     'Alchitry CU',
-    'TinyFpga-BX'
+    'TinyFpga-BX',
+    'OK-iCE40Pro'
 ];
 
 export type ProjectSettings = {
