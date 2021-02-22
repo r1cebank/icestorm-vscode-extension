@@ -16,6 +16,7 @@ export type ProjectSettings = {
     buildType: string;
     build: any;
     program: string;
+    path?: string;
 };
 
 export type StandardBuild = {

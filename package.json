@@ -2,7 +2,7 @@
 	"name": "icestorm",
 	"displayName": "IceStorm",
 	"description": "Build and program FPGA with project IceStorm",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"engines": {
 		"vscode": "^1.48.0"
 	},

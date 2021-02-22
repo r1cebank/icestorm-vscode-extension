@@ -17,6 +17,23 @@ Extension to build and program FPGA using icestorm
 * icestorm.buildproject (Build the project into bitstream)
 * icestorm.programproject (Program the FPGA board)
 
+## Path overrides
+For users using tools that is not available in the system's default PATH (conda, virtualenv). Please modify the project file to add the path your tools can be located. An example is below:
+
+```yaml
+type: TinyFPGA-BX
+buildType: apio
+buildTools:
+  - apio
+programTools:
+  - apio
+buildDir: build
+build: apio build -b TinyFPGA-BX -p source
+program: apio upload -b TinyFPGA-BX -p source
+path: "/home/xxx/venv/bin/"
+projectName: test
+
+```
 ## Features
 
 * Project creating with template code.
@@ -52,6 +69,9 @@ Initial release of extension
 * Alchitry CU support
 * Auto refresh project settings
 * Building and flashing support
+
+### 1.0.6
+Added support to tool path
 
 ## Contributing
 If you want to add your own board support, feel free to submit PR for the new hardware.
